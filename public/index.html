@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DZiP</title>
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
+  <link rel="stylesheet" href="./bower_components/components-font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body >
+
+  <main>    
+    <navigation></navigation>
+    <ui-view></ui-view>
+  </main>
+
+  <script src="./bower_components/tinymce/tinymce.js"></script>
+
+  <script src="./bower_components/angular/angular.min.js"></script>
+  <script src="./bower_components/angular-i18n/angular-locale_pl.js"></script>
+  <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+  <script src="./bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+  <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="./bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.js"></script>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/app.routes.js"></script>
+  <script src="app/app.run.js"></script>
+
+  <script src="app/components/commands/commands-active-list-current-station/commandsActiveListCurrentStationCtrl.js"></script>
+  <script src="app/components/commands/commands-archived-list-current-station/commandsArchivedListCurrentStationCtrl.js"></script>
+  <script src="app/components/commands/commands-active-list/commandsActiveListCtrl.js"></script>
+  <script src="app/components/commands/commands-archived-list/commandsArchivedListCtrl.js"></script>
+  <script src="app/components/commands/commands-detail/commandsDetailCtrl.js"></script>
+  <script src="app/components/commands/commands-create/commandsCreateCtrl.js"></script>
+
+  <script src="app/components/authenticate/authenticate-login/authenticateLoginCtrl.js"></script>
+  <script src="app/components/authenticate/authenticate-register/authenticateRegisterCtrl.js"></script>
+
+  <script src="app/services/configService.js"></script>
+  <script src="app/services/commandsOperationService.js"></script>
+  <script src="app/services/modelService.js"></script>
+  <script src="app/services/authenticateService.js"></script>
+  <script src="app/services/stationsService.js"></script>
+  <script src="app/services/redirectService.js"></script>
+  <script src="app/services/debounceService.js"></script>
+  <script src="app/directives/navigation/navigationDirective.js"></script>
+
+</body>
+</html>

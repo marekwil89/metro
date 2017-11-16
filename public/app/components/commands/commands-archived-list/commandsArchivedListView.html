@@ -1,0 +1,52 @@
+<section class="container-fluid">
+  <div class="jumbotron">
+    <h2>Archiwalne Polecenia <span ng-if="searchByStation">dla {{searchByStation}}</span></h2>
+    <ul ng-show="commands.length <= 0" class="list-group">
+      <li class="list-group-item list-group-item-danger">Brak polecen</li>
+    </ul>
+  </div>
+
+  <div ng-show="commands.length > 0" class="well">
+    <h3>Filtruj</h3>
+    
+    <div class="form-group">
+      <label>Ustaw stacje</label>
+      <select class="form-control" ng-model="searchByStation" >
+        <option value="">Wszystkie</option>
+        <option ng-repeat="station in stations" value="{{station.name}}">{{station.name}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>Znajdź: </label>
+      <input class="form-control" ng-model="searchByText.$" placeholder="zacznij wpisywac">
+    </div>
+  </div>
+  <ul class="list-group">
+    <li ng-repeat="error in errors | filter: {param: 'fail'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+  </ul>
+
+  <div ng-show="commands.length > 0" class="well">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a href="" ng-click="sortBy('author.email')">Autor <i class="fa fa-sort"  aria-hidden="true"></i></a></th>
+          <th><a href="" ng-click="sortBy('title')">Tytuł <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+          <th><a href="" ng-click="sortBy('startDate')">Od <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+          <th><a href="" ng-click="sortBy('endDate')">Do <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr ng-repeat="command in commands | filter: searchByText | filter: searchByStation | orderBy: propertyName: reverse">
+          <td>{{command.author.email}}</td>
+          <td><a ui-sref="commands-detail({ id: command._id })">{{command.title}}</a></td>
+          <td>{{(command.startDate === "" || !command.startDate) ? "Do odwołania": command.startDate | date: 'yyyy-MM-dd HH:mm'}}</td>
+          <td>{{(command.endDate === "" || !command.endDate) ? "Do odwołania": command.endDate | date: 'yyyy-MM-dd HH:mm'}}</td>
+          <td ng-show="current_user"><a href="" ng-click="removeCommand(command)">Usuń</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+

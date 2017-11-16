@@ -1,0 +1,54 @@
+
+<section class="form-section">
+  <form class="well well-lg" ng-submit="register(user)">
+    <h2>Zarejestruj</h2>
+    <div class="form-group">
+      <label>Adres Email</label>
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+        <input ng-model="user.email" type="text" class="form-control" placeholder="adres email">
+      </div>
+      <ul class="list-group">
+        <li ng-repeat="error in errors | filter: {param: 'email'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+      </ul>
+    </div>
+    <div class="form-group">
+      <label>Haslo</label>
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
+        <input ng-model="user.password" type="password" class="form-control" placeholder="haslo">
+      </div>
+      <ul class="list-group">
+        <li ng-repeat="error in errors | filter: {param: 'password'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+      </ul>
+    </div>
+    <div class="form-group">
+      <label>Powtorz haslo</label>
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-repeat" aria-hidden="true"></i></div>
+        <input ng-model="user.repeatPassword" type="password" class="form-control" placeholder="powtorz haslo">
+      </div>
+      <ul class="list-group">
+        <li ng-repeat="error in errors | filter: {param: 'repeatPassword'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+      </ul>
+    </div>
+     
+    <div class="form-group">
+      <label>Konto admin</label>
+        <select class="form-control" ng-model="user.admin" ng-options="o.v as o.n for o in [{n: 'nie', v: false}, {n: 'tak', v: true}]"></select>
+    </div>
+
+    <div ng-if="!user.admin" class="form-group">
+      <label>Ustaw stacje</label>
+        <select class="form-control" ng-model="user.station" >
+          <option ng-repeat="station in stations" value="{{station.name}}">{{station.name}} {{station.fullName}}</option>
+        </select>
+    </div>
+
+    <ul class="list-group">
+      <li ng-repeat="error in errors | filter: {param: 'fail'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+    </ul>
+    <button type="submit" class="btn btn-default">Zarejestruj</button>
+  </form>  
+</section>
+

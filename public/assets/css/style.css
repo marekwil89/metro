@@ -1,0 +1,65 @@
+main{
+  position: relative;
+  min-height: 100vh;
+}
+
+main .theme-selector {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 200px
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 30px; 
+}
+
+.jumbotron{
+  margin-top: 70px;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+  
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-section form {
+  width: 800px
+}
+
+.container-fluid{
+  position: relative;
+}
+
+.modal-overlay{
+  z-index: 1200;
+  background: #333333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay .well-lg{
+  z-index: 1201;
+}
+
+.modal-overlay .well-lg .new-command-info{
+  font-size: 60px;
+  text-transform: uppercase;
+}

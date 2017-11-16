@@ -1,0 +1,74 @@
+<section class="container">
+  <div class="jumbotron">
+    <h2>Dodaj nowe polecenie</h2>
+  </div>
+  
+  <div class="well">
+    <form ng-submit="createCommand(command)">
+      
+      <div class="form-group">
+        <label>Tytuł polecenia</label>
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+          <input ng-model="command.title" type="text" class="form-control" placeholder="Wpisz tytuł...">
+        </div>
+        <ul class="list-group">
+          <li ng-repeat="error in errors | filter: {param: 'title'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+        </ul>
+      </div>
+      
+      <hr>
+      
+      <div class="form-group">
+        <label>Opis polecenia</label>
+        <textarea ng-model="command.descr" class="form-control" ui-tinymce="tinymceOptions"></textarea>
+        <ul class="list-group">
+          <li ng-repeat="error in errors | filter: {param: 'descr'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="form-group">
+        <label>Polecenie ważne  {{command.startDate | date:'medium'}} - {{(command.endDate === null) ? "Do odwolania": command.endDate| date:'medium'}}</label>
+        <div>
+          od <datetimepicker ng-model="command.startDate" show-meridian="false"></datetimepicker>
+        </div>
+        <br>
+        <div>
+          do <datetimepicker ng-model="command.endDate" show-meridian="false"></datetimepicker> <input class="btn btn-default" ng-click="command.endDate = null" type="button" value="X"> 
+        </div>        
+        <ul class="list-group">
+          <li ng-repeat="error in errors | filter: {param: 'endDate'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+        </ul>
+        <ul class="list-group">
+          <li ng-repeat="error in errors | filter: {param: 'startDate'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="form-group">
+        <label>Ustaw stacje na ktorych obowiazuje polecenie</label>
+        <div>
+          <label class="checkbox-inline">
+            <input ng-click="selectAll()" ng-model="isAllSelected" type="checkbox" > zaznacz wszystkie
+          </label>
+          <label class="checkbox-inline" ng-repeat="station in stations">
+            <input type="checkbox" value="{{station}}" ng-change="selectSingle()"  ng-model="station.selected"> {{station.name}}
+          </label>
+        </div>
+      </div>
+      <ul class="list-group">
+        <li ng-repeat="error in errors | filter: {param: 'stations'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+      </ul>
+      <input class="btn btn-default" type="submit" value="Dodaj polecenie">
+
+    </form>
+  </div>
+  <ul class="list-group">
+    <li ng-repeat="error in errors | filter: {param: 'fail'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
+  </ul>
+
+</section>
+

@@ -1,0 +1,20 @@
+<article class="container">
+  <div class="jumbotron">
+    <h2>{{commandDetail.title}}</h2>
+    <p>Polecenie dodał: <strong>{{commandDetail.author.email}}</strong></p>
+    <p>Polecenie obowiązuje od: <strong><time>{{(commandDetail.startDate === "" || !commandDetail.startDate) ? "Do odwołania": commandDetail.startDate | date: 'yyyy-MM-dd HH:mm'}}</time></strong></p>
+    <p>Polecenie obowiązuje do: <strong><time>{{(commandDetail.endDate === "" || !commandDetail.endDate) ? "Do odwołania": commandDetail.endDate | date: 'yyyy-MM-dd HH:mm'}}</time></strong></p>
+    <p>Priorytet: <strong>{{(commandDetail.priority) ? "tak": "nie"}}</strong></p>
+  </div>
+
+  <div class="well well-lg">
+    <div ng-bind-html="commandDetail.descr"></div> 
+  </div>
+
+  <div class="well well-lg">
+    <h3>Polecenie obowiązuje na stacjach:</h3>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-default" ng-repeat="cmdStation in commandDetail.stations">{{cmdStation.name}} {{cmdStation.fullName}}</li>
+    </ul>
+  </div>
+</article> 
