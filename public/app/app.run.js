@@ -5,7 +5,7 @@ angular.module("runModule", [])
   $rootScope.getLogedUser = function(){
     auth.getLogedUser().then(function(response){
       $rootScope.current_user = response.data
-      redirect.user($rootScope.current_user)
+      // redirect.user($rootScope.current_user)
     })
   }
 

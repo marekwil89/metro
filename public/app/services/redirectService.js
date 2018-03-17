@@ -1,11 +1,20 @@
 angular.module("redirectService", [])
 
-.factory('redirect', function($location, $rootScope){
+.factory('redirect', function($location, $rootScope, $state){
   return {
-    ifLogout: function(current_user){    
-      if(!current_user){
-        $location.path('/login')
+    ifLogout: function(){
+      if(!$rootScope.current_user){
+          $state.go('main-page');
+          return true;
       }
+      return false;
+    },
+    ifNotAdmin: function () {
+      if($rootScope.current_user.admin === false){
+          $state.go('main-page');
+          return true;
+      }
+      return false;
     },
     user: function(current_user){
       if(current_user.admin === true){

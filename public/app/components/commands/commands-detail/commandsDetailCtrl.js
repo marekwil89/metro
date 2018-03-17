@@ -1,7 +1,9 @@
 angular.module("commandsDetailModule", [])
 
 .controller('commandsDetailCtrl', function($scope, commandsOperation, redirect, $rootScope){
-  redirect.ifLogout($rootScope.current_user)
+  if(redirect.ifLogout()){
+    return;
+  }
 
   commandsOperation.getDetail().then(function(response){
     $scope.commandDetail = response.data

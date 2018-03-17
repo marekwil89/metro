@@ -4,6 +4,7 @@ angular.module("app", [
   'configService',
 	'routesModule',
   'modelService',
+  'mainPageModuleComponent',
   'commandsActiveListCurrentStationModule',
   'commandsArchivedListCurrentStationModule',
   'commandsOperationService',
@@ -18,7 +19,7 @@ angular.module("app", [
   'redirectService',
   'debounceService',
   'ngSanitize',
-  'ui.tinymce',
+  'textAngular',
   'ui.bootstrap',
   'ui.bootstrap.datetimepicker'
 ]);

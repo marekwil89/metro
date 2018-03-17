@@ -1,6 +1,8 @@
 angular.module("commandsActiveListModule", []).controller('commandsActiveListCtrl', function($scope, commandsOperation, stations, redirect, $rootScope){
 
-  redirect.ifLogout($rootScope.current_user)
+  if(redirect.ifLogout()){
+    return;
+  }
 
   $scope.reverse = false
   $scope.stations = stations.data

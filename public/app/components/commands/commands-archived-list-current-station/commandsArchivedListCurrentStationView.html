@@ -12,8 +12,8 @@
       <input class="form-control" ng-model="searchByText.$" placeholder="zacznij wpisywac">
     </div>
   </div>
-  
-  <div ng-show="commands.length > 0" class="well">
+  <!-- ng-show="commands.length > 0" -->
+  <div class="well">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -32,5 +32,10 @@
         </tr>
       </tbody>
     </table>
+
+    <p>strona {{currentPage}}</p>
+    <p>ilość wszystkich: {{commandsArchiveListLengthByStation}}</p>
+    <hr>
+    <ul uib-pagination items-per-page="100" direction-links="false" total-items="commandsArchiveListLengthByStation" ng-model="currentPage" ng-change="pageChanged()"></ul>
   </div>
 </section>

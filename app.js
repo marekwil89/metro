@@ -10,10 +10,16 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 
 //mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/myapp');          
+// mongoose.connect('mongodb://localhost/myapp');          
+
+mongoose.connect('mongodb://localhost/metro', {
+    useMongoClient: true
+});
 
 require('./models/command');
 require('./models/user');
+
+require('./routes/cyclic/setArchive.js');
 
 var register = require('./routes/auth/register.js');
 var login = require('./routes/auth/login.js');
@@ -79,6 +85,6 @@ app.use('/commands', list);
 app.use('/commands', detail);
 app.use('/commands', remove);
 
-app.listen(8000, function(){
-  console.log('8000');
+app.listen(8002, function(){
+  console.log('8002');
 });

@@ -3,8 +3,8 @@ angular.module("modelService", [])
 .factory('model', function($stateParams){
   return {
     login: {
-      email: 'c09@email.pl',
-      password: 'haslo123'
+      email: 'c16@email.pl',
+      password: 'manta123'
     },
     register: {
       email: 'm.fab@email.pl',

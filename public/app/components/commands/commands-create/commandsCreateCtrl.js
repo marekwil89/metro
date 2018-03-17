@@ -1,18 +1,24 @@
 angular.module("commandsCreateModule", [])
 
-.controller('commandsCreateCtrl', function($scope, commandsOperation, stations, model, tinymce, $location, redirect, $rootScope){
+.controller('commandsCreateCtrl', function($scope, commandsOperation, stations, model, $location, redirect, $rootScope, textAngularService){
 
-  redirect.ifLogout($rootScope.current_user)
+  if(redirect.ifLogout()){
+    return;
+  }
 
-  $scope.tinymceOptions = tinymce.options
+  if(redirect.ifNotAdmin()){
+    return;
+  }
+
+  $scope.textAngularConfig = textAngularService.config();
   $scope.command = model.command
   $scope.stations = stations.data
 
   $scope.createCommand = function(command){
     commandsOperation.createNew(command).then(function(response){
       if(response.data === 'success'){
-        $location.path('/commands-active-list')
-        $scope.command = model.command
+        $scope.command = model.command;
+        $location.path('/commands-active-list');
       }
       else{
         $scope.errors = response.data

@@ -46,6 +46,11 @@
         </tr>
       </tbody>
     </table>
+
+    <p>strona {{currentPage}}</p>
+    <p>ilość wszystkich: {{commandsArchiveListLength}}</p>
+    <hr>
+    <ul uib-pagination items-per-page="100" direction-links="false" total-items="commandsArchiveListLength" ng-model="currentPage" ng-change="pageChanged()"></ul>
   </div>
 </section>
 

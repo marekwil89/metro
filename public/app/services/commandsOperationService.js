@@ -6,12 +6,19 @@ angular.module("commandsOperationService", [])
       var station = $stateParams.station
       return $http.get('/commands/activeListCurrentStation/' + station)
     },
-    archivedListCurrentStation: function(){
+    archivedListCurrentStation: function(page){
       var station = $stateParams.station
-      return $http.get('/commands/archivedListCurrentStation/' + station)
+      return $http.get('/commands/archivedListCurrentStation/' + station + '/' + page)
     },
-    getArchivedList: function(){
-      return $http.get('/commands/archivedList')
+    length: function () {
+      return $http.get('/commands/archivedLength');
+    },
+    lengthByStation: function() {
+      var station = $stateParams.station;
+      return $http.get('/commands/archivedLengthByStation/' + station);
+    },
+    getArchivedList: function(page){
+      return $http.get('/commands/archivedList/' + page)
     },
 		getActiveList: function(){
       return $http.get('/commands/activeList')

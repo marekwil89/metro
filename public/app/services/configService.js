@@ -1,17 +1,12 @@
 angular.module("configService", [])
 
-.factory('tinymce', function(){
-  return {
-    options: {
-      selector: 'textarea',
-      height: 200,
-      language: 'pl',
-      plugins: [
-        'advlist autolink lists link image charmap print preview anchor',
-        'searchreplace visualblocks code fullscreen',
-        'insertdatetime media table contextmenu paste code'
-      ],
-      toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
-    }
+.service('textAngularService', function($http){
+  this.config = function () {
+      return [
+          ['h1', 'h2', 'h3', 'p', 'quote'],
+          ['bold', 'italics', 'underline', 'ul', 'ol'],
+          ['justifyLeft', 'justifyCenter', 'justifyRight'],
+          ['insertLink']
+      ];
   };
-})
+});

@@ -21,7 +21,8 @@
       
       <div class="form-group">
         <label>Opis polecenia</label>
-        <textarea ng-model="command.descr" class="form-control" ui-tinymce="tinymceOptions"></textarea>
+        <div ta-toolbar="textAngularConfig" text-angular ng-model="command.descr"></div>
+        <!-- <textarea ng-model="command.descr" class="form-control" ui-tinymce="tinymceOptions"></textarea> -->
         <ul class="list-group">
           <li ng-repeat="error in errors | filter: {param: 'descr'}" class="list-group-item list-group-item-danger">{{error.msg}}</li>
         </ul>

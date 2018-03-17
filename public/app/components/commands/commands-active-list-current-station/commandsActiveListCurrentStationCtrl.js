@@ -3,7 +3,9 @@ angular.module("commandsActiveListCurrentStationModule", [])
 
 .controller('commandsActiveListCurrentStationCtrl', function($scope, commandsOperation, $location, redirect, $rootScope, debounce){
 
-  redirect.ifLogout($rootScope.current_user)
+  if(redirect.ifLogout()){
+    return;
+  }
 
   $scope.reverse = false;
   $scope.openModal = false;

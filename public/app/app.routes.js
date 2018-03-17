@@ -5,9 +5,10 @@ angular.module("routesModule", ['ui.router']).config(function($stateProvider, $u
 	$stateProvider
 
 	.state({
-	    name: 'dashboard',
-	    url: '/dashboard',
-	    templateUrl: 'app/components/board/dashboardView.html'
+	    name: 'main-page',
+	    url: '/',
+		templateUrl: 'app/components/main-page/mainPageView.html',
+		controller: 'mainPageCtrl'
  	})
  	.state({
 	    name: 'main',

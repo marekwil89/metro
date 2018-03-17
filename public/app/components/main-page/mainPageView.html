@@ -1,0 +1,12 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Strona główna</h2>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, ab fugiat non eaque culpa veniam qui minus est. Facere culpa quas suscipit dolorem, dignissimos officia iste possimus cum necessitatibus mollitia maxime nihil exercitationem quisquam? Sapiente earum voluptas consequuntur mollitia ex impedit, rerum alias velit doloribus tenetur exercitationem cum officiis doloremque.</p>
+        <hr>
+        <button ui-sref="login" ng-if="!current_user" class="btn btn-success">Zaloguj się</button>
+        <button ui-sref="recepcionist-employee-search" ng-if="current_user && current_user.admin === false" class="btn btn-success">Wyszukaj pracownika po jego ID lub służbowym adresie e-mail</button>
+        <button ui-sref="admin-employee-search" ng-if="current_user && current_user.admin === true" class="btn btn-success">Wyszukaj pracownika po jego ID lub służbowym adresie e-mail</button>
+    </div>
+</div>

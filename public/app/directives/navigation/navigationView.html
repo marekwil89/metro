@@ -12,7 +12,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav">
-        <li ng-if="current_user"><a class="nav-link" target="_blank" href="https://cdn.rawgit.com/marekwil89/invaders-game/58ed9464/index.html" >Nudzisz sie ?</a></li>
+        <li ng-if="current_user && current_user.admin === false"><a class="nav-link" target="_blank" href="https://cdn.rawgit.com/marekwil89/invaders-game/58ed9464/index.html" >fun</a></li>
         <li ng-if="current_user"><a class="nav-link" href="">{{current_user.email}}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -24,8 +24,7 @@
         <li ng-if="current_user && current_user.admin === true"><a class="nav-link" ui-sref="commands-create">Utwórz Polecenie</a></li>
         <li ng-if="!current_user"><a class="nav-link" ui-sref="login">Zaloguj</a></li>
         <li ng-if="!current_user"><a class="nav-link" ui-sref="register">Zarejestruj</a></li>
-        
-        
+      
         <li ng-if="current_user"><a class="nav-link" href="" ng-click="logOut()">Wyloguj</a></li>
       </ul>
     </div>
